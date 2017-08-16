@@ -14,49 +14,44 @@ using CodeninWebApi.Models;
 
 namespace CodeninWebApi.Controllers.WebApiController
 {
-    public class CoursesApiController : ApiController
+    public class ModulesApiController : ApiController
     {
-        private readonly CodenimDbContext _db;
+        private readonly CodenimDbContext _db = new CodenimDbContext();
 
-        public CoursesApiController()
+        // GET: api/ModulesApi
+        public IQueryable<Module> GetModules()
         {
-            _db = new CodenimDbContext();
+            return _db.Modules;
         }
 
-        // GET: api/CoursesApi
-        public List<Course> GetCourses()
+        // GET: api/ModulesApi/5
+        [ResponseType(typeof(Module))]
+        public async Task<IHttpActionResult> GetModule(int id)
         {
-            return _db.Courses.AsNoTracking().Include(c => c.CourseCategory).Include(c => c.Modules).ToList();
-        }
-
-        // GET: api/CoursesApi/5
-        [ResponseType(typeof(Course))]
-        public async Task<IHttpActionResult> GetCourse(int id)
-        {
-            Course course = await _db.Courses.FindAsync(id);
-            if (course == null)
+            Module module = await _db.Modules.FindAsync(id);
+            if (module == null)
             {
                 return NotFound();
             }
 
-            return Ok(course);
+            return Ok(module);
         }
 
-        // PUT: api/CoursesApi/5
+        // PUT: api/ModulesApi/5
         [ResponseType(typeof(void))]
-        public async Task<IHttpActionResult> PutCourse(int id, Course course)
+        public async Task<IHttpActionResult> PutModule(int id, Module module)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != course.CourseId)
+            if (id != module.ModuleId)
             {
                 return BadRequest();
             }
 
-            _db.Entry(course).State = EntityState.Modified;
+            _db.Entry(module).State = EntityState.Modified;
 
             try
             {
@@ -64,7 +59,7 @@ namespace CodeninWebApi.Controllers.WebApiController
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!CourseExists(id))
+                if (!ModuleExists(id))
                 {
                     return NotFound();
                 }
@@ -77,35 +72,35 @@ namespace CodeninWebApi.Controllers.WebApiController
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/CoursesApi
-        [ResponseType(typeof(Course))]
-        public async Task<IHttpActionResult> PostCourse(Course course)
+        // POST: api/ModulesApi
+        [ResponseType(typeof(Module))]
+        public async Task<IHttpActionResult> PostModule(Module module)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            _db.Courses.Add(course);
+            _db.Modules.Add(module);
             await _db.SaveChangesAsync();
 
-            return CreatedAtRoute("DefaultApi", new { id = course.CourseId }, course);
+            return CreatedAtRoute("DefaultApi", new { id = module.ModuleId }, module);
         }
 
-        // DELETE: api/CoursesApi/5
-        [ResponseType(typeof(Course))]
-        public async Task<IHttpActionResult> DeleteCourse(int id)
+        // DELETE: api/ModulesApi/5
+        [ResponseType(typeof(Module))]
+        public async Task<IHttpActionResult> DeleteModule(int id)
         {
-            Course course = await _db.Courses.FindAsync(id);
-            if (course == null)
+            Module module = await _db.Modules.FindAsync(id);
+            if (module == null)
             {
                 return NotFound();
             }
 
-            _db.Courses.Remove(course);
+            _db.Modules.Remove(module);
             await _db.SaveChangesAsync();
 
-            return Ok(course);
+            return Ok(module);
         }
 
         protected override void Dispose(bool disposing)
@@ -117,9 +112,9 @@ namespace CodeninWebApi.Controllers.WebApiController
             base.Dispose(disposing);
         }
 
-        private bool CourseExists(int id)
+        private bool ModuleExists(int id)
         {
-            return _db.Courses.Count(e => e.CourseId == id) > 0;
+            return _db.Modules.Count(e => e.ModuleId == id) > 0;
         }
     }
 }

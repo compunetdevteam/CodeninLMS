@@ -34,5 +34,7 @@ namespace CodeninWebApi.Models
         public System.Data.Entity.DbSet<CodeninModel.CourseCategory> CourseCategories { get; set; }
 
         public System.Data.Entity.DbSet<CodeninModel.Course> Courses { get; set; }
+
+        public System.Data.Entity.DbSet<CodeninModel.Module> Modules { get; set; }
     }
 }
