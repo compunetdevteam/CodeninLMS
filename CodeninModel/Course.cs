@@ -1,14 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using LMSModel;
 
 namespace CodeninModel
 {
     public class Course
     {
         public int CourseId { get; set; }
+        public int CourseCategoryId { get; set; }
+        public string CourseCode { get; set; }
+        public string CourseName { get; set; }
+        public string CourseDescription { get; set; }
+        public int ExpectedTime { get; set; }
+        public DateTime? DateAdded { get; set; }
+        public virtual CourseCategory CourseCategory { get; set; }
         public virtual ICollection<Module> Modules { get; set; }
     }
 }

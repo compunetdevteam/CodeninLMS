@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using LMSModel;
 
 namespace CodeninModel
 {
@@ -10,8 +7,10 @@ namespace CodeninModel
     {
         public int ModuleId { get; set; }
         public int CourseId { get; set; }
+        public string ModuleName { get; set; }
+        public string ModuleDescription { get; set; }
+        public int ExpectedTime { get; set; }
         public virtual Course Course { get; set; }
         public virtual ICollection<Topic> Topics { get; set; }
-        public virtual ICollection<ModuleQuiz> ModuleQuizzes { get; set; }
     }
 }

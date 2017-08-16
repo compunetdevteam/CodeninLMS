@@ -10,6 +10,7 @@ namespace CodeninModel
     {
         public int TopicContentId { get; set; }
         public int TopicId { get; set; }
+        public string TopicBody { get; set; }
         public virtual Topic Topic { get; set; }
     }
 }
