@@ -18,16 +18,21 @@ namespace CodeninWebApi.Models
         }
     }
 
-    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
+    public class CodenimDbContext : IdentityDbContext<ApplicationUser>
     {
-        public ApplicationDbContext()
+        public CodenimDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
+            this.Configuration.ProxyCreationEnabled = false;
         }
-        
-        public static ApplicationDbContext Create()
+
+        public static CodenimDbContext Create()
         {
-            return new ApplicationDbContext();
+            return new CodenimDbContext();
         }
+
+        public System.Data.Entity.DbSet<CodeninModel.CourseCategory> CourseCategories { get; set; }
+
+        public System.Data.Entity.DbSet<CodeninModel.Course> Courses { get; set; }
     }
 }

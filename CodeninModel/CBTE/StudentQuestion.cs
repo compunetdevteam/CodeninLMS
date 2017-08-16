@@ -1,6 +1,4 @@
-﻿using LMSModel;
-
-namespace CodeninModel.CBTE
+﻿namespace CodeninModel.CBTE
 {
     public class StudentQuestion
     {

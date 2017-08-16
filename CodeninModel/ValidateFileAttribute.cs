@@ -3,7 +3,7 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using System.Web;
 
-namespace LMSModel
+namespace CodeninModel
 {
     public class ValidateFileAttribute : RequiredAttribute
     {
