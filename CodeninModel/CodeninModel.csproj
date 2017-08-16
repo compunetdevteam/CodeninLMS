@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="Course.cs" />
     <Compile Include="CourseCategory.cs" />
+    <Compile Include="Question.cs" />
     <Compile Include="Topic.cs" />
     <Compile Include="Module.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
