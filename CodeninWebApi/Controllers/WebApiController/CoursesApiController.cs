@@ -26,7 +26,7 @@ namespace CodeninWebApi.Controllers.WebApiController
         // GET: api/CoursesApi
         public List<Course> GetCourses()
         {
-            return _db.Courses.ToList();
+            return _db.Courses.Include(i => i.CourseCategory).Include(i => i.Modules).ToList();
         }
 
         // GET: api/CoursesApi/5

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using CodeninModel.Quiz;
 
 namespace CodeninModel.BlogPost
 {
