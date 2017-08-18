@@ -244,10 +244,12 @@
     <Compile Include="Controllers\CoursesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ModulesController.cs" />
+    <Compile Include="Controllers\TopicsController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Controllers\WebApiController\CourseCategoriesApiController.cs" />
     <Compile Include="Controllers\WebApiController\CoursesApiController.cs" />
     <Compile Include="Controllers\WebApiController\ModulesApiController.cs" />
+    <Compile Include="Controllers\WebApiController\TopicsApiController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -336,6 +338,16 @@
     <Content Include="Views\Modules\Details.cshtml" />
     <Content Include="Views\Modules\Edit.cshtml" />
     <Content Include="Views\Modules\Index.cshtml" />
+    <Content Include="Views\TopicsApi\Create.cshtml" />
+    <Content Include="Views\TopicsApi\Delete.cshtml" />
+    <Content Include="Views\TopicsApi\Details.cshtml" />
+    <Content Include="Views\TopicsApi\Edit.cshtml" />
+    <Content Include="Views\TopicsApi\Index.cshtml" />
+    <Content Include="Views\Topics\Create.cshtml" />
+    <Content Include="Views\Topics\Delete.cshtml" />
+    <Content Include="Views\Topics\Details.cshtml" />
+    <Content Include="Views\Topics\Edit.cshtml" />
+    <Content Include="Views\Topics\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

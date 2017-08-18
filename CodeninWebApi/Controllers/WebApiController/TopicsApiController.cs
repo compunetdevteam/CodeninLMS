@@ -14,44 +14,44 @@ using CodeninWebApi.Models;
 
 namespace CodeninWebApi.Controllers.WebApiController
 {
-    public class ModulesApiController : ApiController
+    public class TopicsApiController : ApiController
     {
         private readonly CodenimDbContext _db = new CodenimDbContext();
 
-        // GET: api/ModulesApi
-        public List<Module> GetModules()
+        // GET: api/TopicsApi
+        public IQueryable<Topic> GetTopics()
         {
-            return _db.Modules.AsNoTracking().Include(t => t.Topics).ToList();
+            return _db.Topics;
         }
 
-        // GET: api/ModulesApi/5
-        [ResponseType(typeof(Module))]
-        public async Task<IHttpActionResult> GetModule(int id)  
+        // GET: api/TopicsApi/5
+        [ResponseType(typeof(Topic))]
+        public async Task<IHttpActionResult> GetTopic(int id)
         {
-            Module module = await _db.Modules.FindAsync(id);
-            if (module == null)
+            Topic topic = await _db.Topics.FindAsync(id);
+            if (topic == null)
             {
                 return NotFound();
             }
 
-            return Ok(module);
+            return Ok(topic);
         }
 
-        // PUT: api/ModulesApi/5
+        // PUT: api/TopicsApi/5
         [ResponseType(typeof(void))]
-        public async Task<IHttpActionResult> PutModule(int id, Module module)
+        public async Task<IHttpActionResult> PutTopic(int id, Topic topic)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != module.ModuleId)
+            if (id != topic.TopicId)
             {
                 return BadRequest();
             }
 
-            _db.Entry(module).State = EntityState.Modified;
+            _db.Entry(topic).State = EntityState.Modified;
 
             try
             {
@@ -59,7 +59,7 @@ namespace CodeninWebApi.Controllers.WebApiController
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!ModuleExists(id))
+                if (!TopicExists(id))
                 {
                     return NotFound();
                 }
@@ -72,35 +72,35 @@ namespace CodeninWebApi.Controllers.WebApiController
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/ModulesApi
-        [ResponseType(typeof(Module))]
-        public async Task<IHttpActionResult> PostModule(Module module)
+        // POST: api/TopicsApi
+        [ResponseType(typeof(Topic))]
+        public async Task<IHttpActionResult> PostTopic(Topic topic)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            _db.Modules.Add(module);
+            _db.Topics.Add(topic);
             await _db.SaveChangesAsync();
 
-            return CreatedAtRoute("DefaultApi", new { id = module.ModuleId }, module);
+            return CreatedAtRoute("DefaultApi", new { id = topic.TopicId }, topic);
         }
 
-        // DELETE: api/ModulesApi/5
-        [ResponseType(typeof(Module))]
-        public async Task<IHttpActionResult> DeleteModule(int id)
+        // DELETE: api/TopicsApi/5
+        [ResponseType(typeof(Topic))]
+        public async Task<IHttpActionResult> DeleteTopic(int id)
         {
-            Module module = await _db.Modules.FindAsync(id);
-            if (module == null)
+            Topic topic = await _db.Topics.FindAsync(id);
+            if (topic == null)
             {
                 return NotFound();
             }
 
-            _db.Modules.Remove(module);
+            _db.Topics.Remove(topic);
             await _db.SaveChangesAsync();
 
-            return Ok(module);
+            return Ok(topic);
         }
 
         protected override void Dispose(bool disposing)
@@ -112,9 +112,9 @@ namespace CodeninWebApi.Controllers.WebApiController
             base.Dispose(disposing);
         }
 
-        private bool ModuleExists(int id)
+        private bool TopicExists(int id)
         {
-            return _db.Modules.Count(e => e.ModuleId == id) > 0;
+            return _db.Topics.Count(e => e.TopicId == id) > 0;
         }
     }
 }

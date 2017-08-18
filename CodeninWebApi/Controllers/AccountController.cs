@@ -340,7 +340,7 @@ namespace CodeninWebApi.Controllers
             return Ok();
         }
 
-        // POST api/Account/RegisterExternal
+        // POST api/Account/RegisterExternal    
         [OverrideAuthentication]
         [HostAuthentication(DefaultAuthenticationTypes.ExternalBearer)]
         [Route("RegisterExternal")]
