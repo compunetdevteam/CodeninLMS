@@ -337,7 +337,7 @@ namespace CodeninWebApi.Controllers
                 return GetErrorResult(result);
             }
 
-            return Ok();
+            return Redirect("Welcom");
         }
 
         // POST api/Account/RegisterExternal    

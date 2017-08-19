@@ -67,5 +67,12 @@
     <Compile Include="Tutor.cs" />
     <Compile Include="ValidateFileAttribute.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Scripts\knockout-3.4.2.debug.js" />
+    <Content Include="Scripts\knockout-3.4.2.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
