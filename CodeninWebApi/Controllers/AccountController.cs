@@ -337,10 +337,10 @@ namespace CodeninWebApi.Controllers
                 return GetErrorResult(result);
             }
 
-            return Ok();
+            return Redirect("Welcom");
         }
 
-        // POST api/Account/RegisterExternal
+        // POST api/Account/RegisterExternal    
         [OverrideAuthentication]
         [HostAuthentication(DefaultAuthenticationTypes.ExternalBearer)]
         [Route("RegisterExternal")]

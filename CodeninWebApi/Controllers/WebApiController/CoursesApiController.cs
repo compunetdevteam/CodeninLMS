@@ -26,7 +26,7 @@ namespace CodeninWebApi.Controllers.WebApiController
         // GET: api/CoursesApi
         public List<Course> GetCourses()
         {
-            return _db.Courses.Include(i => i.CourseCategory).Include(i => i.Modules).ToList();
+            return _db.Courses.AsNoTracking().Include(c => c.CourseCategory).Include(m => m.Modules).Include(t => t.Modules).ToList();
         }
 
         // GET: api/CoursesApi/5
@@ -78,6 +78,7 @@ namespace CodeninWebApi.Controllers.WebApiController
         }
 
         // POST: api/CoursesApi
+        //this method is use to create courses
         [ResponseType(typeof(Course))]
         public async Task<IHttpActionResult> PostCourse(Course course)
         {
