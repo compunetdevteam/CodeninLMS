@@ -271,6 +271,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\flatybootstrap.min.css" />
+    <Content Include="Content\Login.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -353,6 +354,8 @@
     <Content Include="Views\Topics\Edit.cshtml" />
     <Content Include="Views\Topics\Index.cshtml" />
     <Content Include="Views\Home\Welcom.cshtml" />
+    <Content Include="Views\Home\_Create.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

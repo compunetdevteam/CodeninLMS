@@ -14,5 +14,12 @@ namespace CodeninWebApi.Controllers
 
             return View();
         }
+
+        public ActionResult Login111()
+        {
+            ViewBag.Title = "Home Page";
+
+            return View();
+        }
     }
 }
