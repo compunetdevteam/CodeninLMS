@@ -1,4 +1,6 @@
-﻿namespace CodeninModel.CBTE
+﻿using CodeninModel.Quiz;
+
+namespace CodeninModel.Assesment
 {
     public class StudentQuestion
     {
@@ -17,17 +19,13 @@
         public string FilledAnswer { get; set; }
         public string Answer { get; set; }
         public string QuestionHint { get; set; }
-
         public int QuestionNumber { get; set; }
-
         public bool IsCorrect { get; set; }
         public bool IsFillInTheGag { get; set; }
         public bool IsMultiChoiceAnswer { get; set; }
         public string SelectedAnswer { get; set; }
         public int TotalQuestion { get; set; }
-
         public int ExamTime { get; set; }
-
         public virtual Student Student { get; set; }
         public virtual Topic Topic { get; set; }
     }

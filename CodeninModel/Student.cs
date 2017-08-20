@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using CodeninModel.Assesment;
 using CodeninModel.CBTE;
 
 namespace CodeninModel
@@ -26,5 +27,6 @@ namespace CodeninModel
         public virtual ICollection<SubmitAssignment> SubmitAssignments { get; set; }
         public virtual ICollection<StudentTestLog> StudentTestLogs { get; set; }
         public virtual ICollection<StudentQuestion> StudentQuestions { get; set; }
+        public virtual ICollection<StudentAssesment> StudentAssesments { get; set; }
     }
 }

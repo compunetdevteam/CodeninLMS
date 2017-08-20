@@ -1,4 +1,6 @@
-﻿namespace CodeninModel.CBTE
+﻿using CodeninModel.Quiz;
+
+namespace CodeninModel.CBTE
 {
     public class StudentTestLog
     {

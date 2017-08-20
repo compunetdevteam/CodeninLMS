@@ -1,8 +1,9 @@
 ﻿using System.Collections.Generic;
+using CodeninModel.Assesment;
 using CodeninModel.BlogPost;
 using CodeninModel.CBTE;
 
-namespace CodeninModel
+namespace CodeninModel.Quiz
 {
     public class Topic
     {
@@ -17,7 +18,7 @@ namespace CodeninModel
         public virtual ICollection<SubmitAssignment> SubmitAssignments { get; set; }
         public virtual ICollection<StudentTestLog> StudentTestLogs { get; set; }
         public virtual ICollection<QuizRule> QuizRules { get; set; }
-        public virtual ICollection<QuestionAnswer> QuestionAnswers { get; set; }
+        public virtual ICollection<TopicQuiz> TopicQuizzes { get; set; }
         public virtual ICollection<StudentQuestion> StudentQuestions { get; set; }
     }
 }

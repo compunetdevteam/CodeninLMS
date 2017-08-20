@@ -1,21 +1,14 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace CodeninModel.CBTE
+namespace CodeninModel.Quiz
 {
-    public class QuestionAnswer
+    public class TopicQuiz
     {
-        public int QuestionAnswerId { get; set; }
+        public int TopicQuizId { get; set; }
 
         [Display(Name = "Topic Name")]
         [Required(ErrorMessage = "Topic Name is required")]
         public int TopicId { get; set; }
-
-        [Display(Name = "Level Name")]
-        //[Required(ErrorMessage = "Level Name is required")]
-        public int LevelId { get; set; }
-
-        [Display(Name = "Exam Type")]
-        public int ExamTypeId { get; set; }
 
         [Display(Name = "Question")]
         [Required(ErrorMessage = "Question is required")]
